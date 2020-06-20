@@ -1,7 +1,9 @@
 body {
-    background-color: pink;
+    font-family: 'Avenir', sans-serif;
+    margin: 0;
 }
 
 div {
-    background-color: lightseagreen;
+    background-color: gray;
+    color: white;
 }
