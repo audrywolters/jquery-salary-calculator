@@ -22,7 +22,11 @@ function processEmployee() {
                         salary: Number( salary )
                     };
 
-    // AUDRY - empty the inputs somewhere
+    $( '#firstNameIn' ).val('');
+    $( '#lastNameIn') .val('');
+    $( '#empIDIn' ).val('');
+    $( '#titleIn' ).val('');
+    $( '#salaryIn' ).val('');
 
     console.log( employee );
 
