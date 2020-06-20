@@ -6,28 +6,28 @@ function readyNow() {
 }
 
 function processEmployee() {
-    // grab the employee from inputs
-    let firstName = $( '#firstNameIn').val();
-    let lastName  = $( '#lastNameIn').val();
+    // grab employee from inputs
+    let firstName  = $( '#firstNameIn' ).val();
+    let lastName   = $( '#lastNameIn') .val();
+    let employeeID = $( '#empIDIn' ).val();
+    let title      = $( '#titleIn' ).val();
+    let salary     = $( '#salaryIn' ).val();
 
     // consolidate
     let employee =  {
                         firstName: firstName,
-                        lastName:  lastName
+                        lastName:  lastName,
+                        empID: Number( employeeID ),
+                        title: title,
+                        salary: Number( salary )
                     };
 
     // AUDRY - empty the inputs somewhere
-    
+
     console.log( employee );
 
     event.preventDefault();
 }
-
-// grab input with id
-//  i don't think we should mess with the 'submit' stuff
-// put into an object
-// console.log(employee)
-
 
 
 // The application should have an input form that collects 
