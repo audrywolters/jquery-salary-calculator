@@ -1,5 +1,33 @@
-$( document ).ready( console.log( 'jQ!') );
-console.log( 'js!' );
+$( document ).ready( readyNow );
+
+function readyNow() {
+    // tell DOM about button
+    $( '#inputSubmit' ).on( 'click', processEmployee );
+}
+
+function processEmployee() {
+    // grab the employee from inputs
+    let firstName = $( '#firstNameIn').val();
+    let lastName  = $( '#lastNameIn').val();
+
+    // consolidate
+    let employee =  {
+                        firstName: firstName,
+                        lastName:  lastName
+                    };
+
+    // AUDRY - empty the inputs somewhere
+    
+    console.log( employee );
+
+    event.preventDefault();
+}
+
+// grab input with id
+//  i don't think we should mess with the 'submit' stuff
+// put into an object
+// console.log(employee)
+
 
 
 // The application should have an input form that collects 
