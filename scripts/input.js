@@ -1,8 +1,15 @@
-$( document ).ready( readyNow );
+$( document ).ready( onReady );
 
-function readyNow() {
+function onReady() {
     // tell DOM about button
     $( '#inputSubmit' ).on( 'click', processEmployee );
+
+    // button doesn't exist until submit click
+    // so start out by grabbing the existing table in DOM
+    $( 'table' ).on( 'click', '.deleteButton', clickDeleteEmployee );
+
+    // AUDRY
+    // => e.target / this <=
 }
 
 function processEmployee() {
@@ -45,13 +52,15 @@ function putEmployeeIntoTable( employee ) {
             <td>${ employee.empID }</td>
             <td>${ employee.title }</td>
             <td>${ employee.salary }</td>
-            <td>button</td>
+            <td><button class="deleteButton">Delete</button></td>
          </tr>`
         );
-    // let $el = $('.container').children().last();
-    // $el.append('<button id="meowButton">Meow</button>');
-    
 } 
+
+function clickDeleteEmployee () {
+    console.log('hi');
+    event.preventDefault();
+}
 
 // A 'Submit' button should collect the form information, 
 // store the information to calculate monthly costs, 
