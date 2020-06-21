@@ -26,20 +26,12 @@ function processEmployee() {
     $( '#lastNameIn') .val('');
     $( '#empIDIn' ).val('');
     $( '#titleIn' ).val('');
-    $( '#salaryIn' ).val('');
+    $( '#salaryIn' ).val(''); 
 
     console.log( employee );
 
     event.preventDefault();
 }
-
-
-// The application should have an input form that collects 
-// _employee first name, 
-// last name, 
-// ID number, 
-// job title, 
-// annual salary_.
 
 // A 'Submit' button should collect the form information, 
 // store the information to calculate monthly costs, 

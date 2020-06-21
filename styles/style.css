@@ -7,3 +7,13 @@ div {
     background-color: gray;
     color: white;
 }
+
+table {
+    width: 75%;
+    border: 1px solid;
+}
+
+th {
+    float: left;
+    margin-right: 40px;
+}
