@@ -1,5 +1,7 @@
 $( document ).ready( onReady );
 
+let employees = [];
+
 function onReady() {
     // tell DOM about button
     $( '#inputSubmit' ).on( 'click', processEmployee );
@@ -7,9 +9,6 @@ function onReady() {
     // button doesn't exist until submit click
     // so start out by grabbing the existing table in DOM
     $( 'table' ).on( 'click', '.deleteButton', clickDeleteEmployee );
-
-    // AUDRY
-    // => e.target / this <=
 }
 
 function processEmployee() {
@@ -40,7 +39,12 @@ function processEmployee() {
 
     // display employee
     putEmployeeIntoTable( employee );
+
+    // save employee for later
+    employees.push( employee );
     
+    // update monthly cost
+    // tallyMonthlyCost();
 }
 
 function putEmployeeIntoTable( employee ) {
@@ -58,9 +62,28 @@ function putEmployeeIntoTable( employee ) {
 } 
 
 function clickDeleteEmployee () {
-    console.log('hi');
+    // travel up to the button's row
+    // and delete the whole row
+    $( this ).closest( 'tr' ).remove();
+
     event.preventDefault();
 }
+
+// add Employees h3
+
+// add div or wtvr to display monthly cost
+
+// each submit click
+// add salarays
+// divide by 12 (months)
+// display that amount in div or wtvr
+
+// in divide/display funciton
+// if amount > 20K
+// css bg red
+
+
+
 
 // A 'Submit' button should collect the form information, 
 // store the information to calculate monthly costs, 
