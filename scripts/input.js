@@ -1,6 +1,7 @@
 $( document ).ready( onReady );
 
 let employees = [];
+let totalSalaries = 0;
 
 function onReady() {
     // tell DOM about button
@@ -8,6 +9,7 @@ function onReady() {
 
     // button doesn't exist until submit click
     // so start out by grabbing the existing table in DOM
+    // then DOM can know about the button
     $( 'table' ).on( 'click', '.deleteButton', clickDeleteEmployee );
 }
 
@@ -44,20 +46,21 @@ function processEmployee() {
 
     // save employee for later
     employees.push( employee );
+    totalSalaries += employee.salary
     
     // update monthly cost
     tallyMonthlyCost();
 }
 
 function putEmployeeIntoTable( employee ) {
-
+    // squish into the DOM
     $( 'table' ).append(
         `<tr>
             <td>${ employee.firstName }</td>
             <td>${ employee.lastName }</td>
             <td>${ employee.empID }</td>
             <td>${ employee.title }</td>
-            <td>${ employee.salary }</td>
+            <td class="salary">${ employee.salary }</td>
             <td><button class="deleteButton">Delete</button></td>
          </tr>`
         );
@@ -66,18 +69,40 @@ function putEmployeeIntoTable( employee ) {
 function clickDeleteEmployee () {
     // travel up to the button's row
     // and delete it
-    $( this ).closest( 'tr' ).remove();
+    let row = $( this ).closest( 'tr' );
+    row.remove();
+
+    // update the data for monthly cost
+    removeEmployeeSalary( row );
 
     event.preventDefault();
 }
 
-function tallyMonthlyCost() {
+function removeEmployeeSalary ( row ) {
+    //var deltedEmpID = row.find('td.empID').text();
+    let deletedSalary     = row.find('td.salary').text();
 
-    let totalSalaries = 0;
-    
+    let deletedEmployee = null;
     for ( let employee of employees ) {
-        totalSalaries += employee.salary;
+
+        if ( employee.salary === Number(deletedSalary) ) {
+            // update monies
+            totalSalaries -= employee.salary;
+
+            // prepare to clean up data
+            deletedEmployee = employee;
+            break;
+        }
     }
+
+    // clean data
+    employees.pop(deletedEmployee);
+
+    // update monthly cost
+    tallyMonthlyCost();
+}
+
+function tallyMonthlyCost() {
 
     // divide by 12 (months)
     let monthlyCost = ( totalSalaries / 12 ).toFixed( 2 );
@@ -93,6 +118,3 @@ function tallyMonthlyCost() {
     // display
     $( '#monthlyCost' ).text( 'Monthly Cost: $' + monthlyCost );
 }
-
-
-// remove Employee's salary from the reported total.
