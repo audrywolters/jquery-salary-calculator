@@ -1,28 +1,56 @@
 body {
     font-family: 'Avenir', sans-serif;
-    margin: 0;
+    margin: 0 0 0 20px;
 }
 
 h2 {
-    margin: 0;
+    /* is ok to use negative number? */
+    margin: 0 0 0 -20px;
     padding: 20px;
     background-color: gray;
     color: white;
 }
 
-table, th, td {
-    border: 1px solid;
+input {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+button {
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+    margin: 4px 2px;
+    padding: 7px 30px;
+    border:  0;
 }
 
 table {
     width: 75%;
     table-layout: fixed;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+}
+
+th, td { 
+    padding: 8px;
 }
 
 th {
-    text-align: left;
+    background-color: gray;
+    text-align: left;  
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: white;
+}
+
+tr:nth-child(odd) {
+    background-color: lightgray;
 }
 
 #monthlyCost {
     font-weight: bold;
+    width: 75%;
+    background-color: rgb(212, 71, 71);
 }
