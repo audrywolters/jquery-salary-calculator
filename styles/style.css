@@ -8,12 +8,15 @@ div {
     color: white;
 }
 
-table {
-    width: 75%;
+table, th, td {
     border: 1px solid;
 }
 
-th, td {
-    float: left;
-    margin-right: 40px;
+table {
+    width: 75%;
+    table-layout: fixed;
+}
+
+th {
+    text-align: left;
 }

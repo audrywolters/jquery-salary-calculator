@@ -30,7 +30,28 @@ function processEmployee() {
     $( '#salaryIn' ).val(''); 
 
     event.preventDefault();
+
+    // display employee
+    putEmployeeIntoTable( employee );
+    
 }
+
+function putEmployeeIntoTable( employee ) {
+
+    $( 'table' ).append(
+        `<tr>
+            <td>${ employee.firstName }</td>
+            <td>${ employee.lastName }</td>
+            <td>${ employee.empID }</td>
+            <td>${ employee.title }</td>
+            <td>${ employee.salary }</td>
+            <td>button</td>
+         </tr>`
+        );
+    // let $el = $('.container').children().last();
+    // $el.append('<button id="meowButton">Meow</button>');
+    
+} 
 
 // A 'Submit' button should collect the form information, 
 // store the information to calculate monthly costs, 
