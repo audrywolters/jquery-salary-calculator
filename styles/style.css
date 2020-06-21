@@ -13,7 +13,7 @@ table {
     border: 1px solid;
 }
 
-th {
+th, td {
     float: left;
     margin-right: 40px;
 }

@@ -22,13 +22,12 @@ function processEmployee() {
                         salary: Number( salary )
                     };
 
+    // after user submits, clear so they can start over
     $( '#firstNameIn' ).val('');
     $( '#lastNameIn') .val('');
     $( '#empIDIn' ).val('');
     $( '#titleIn' ).val('');
     $( '#salaryIn' ).val(''); 
-
-    console.log( employee );
 
     event.preventDefault();
 }
