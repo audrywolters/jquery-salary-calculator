@@ -35,6 +35,8 @@ function processEmployee() {
     $( '#titleIn' ).val('');
     $( '#salaryIn' ).val(''); 
 
+    // Mary or Dev: should I keep preventDefault after the jQuery stuff
+    // or should I put it at the end of the function?
     event.preventDefault();
 
     // display employee
@@ -44,7 +46,7 @@ function processEmployee() {
     employees.push( employee );
     
     // update monthly cost
-    // tallyMonthlyCost();
+    tallyMonthlyCost();
 }
 
 function putEmployeeIntoTable( employee ) {
@@ -63,38 +65,34 @@ function putEmployeeIntoTable( employee ) {
 
 function clickDeleteEmployee () {
     // travel up to the button's row
-    // and delete the whole row
+    // and delete it
     $( this ).closest( 'tr' ).remove();
 
     event.preventDefault();
 }
 
-// add Employees h3
+function tallyMonthlyCost() {
 
-// add div or wtvr to display monthly cost
+    let totalSalaries = 0;
+    
+    for ( let employee of employees ) {
+        totalSalaries += employee.salary;
+    }
 
-// each submit click
-// add salarays
-// divide by 12 (months)
-// display that amount in div or wtvr
+    // divide by 12 (months)
+    let monthlyCost = ( totalSalaries / 12 ).toFixed( 2 );
 
-// in divide/display funciton
-// if amount > 20K
-// css bg red
+    // warn user if it's getting too expensive
+    if ( monthlyCost > 20000 ) {
+        // AUDRY - will need to css this p
+        $( '#monthlyCost' ).css( 'background-color', 'pink' );
+    } else {
+        $( '#monthlyCost' ).css( 'background-color', 'white' );
+    }
+
+    // display
+    $( '#monthlyCost' ).text( 'Monthly Cost: $' + monthlyCost );
+}
 
 
-
-
-// A 'Submit' button should collect the form information, 
-// store the information to calculate monthly costs, 
-// append information to the DOM and clear the input fields. 
-
-// Using the stored information, 
-// calculate monthly costs and append this to the to DOM. 
-
-// If the total monthly cost exceeds $20,000, 
-// add a red background color to the total monthly cost.
-
-// Create a delete button that removes an employee from the DOM. 
-// For Base mode, it does **not** need to remove 
-// that Employee's salary from the reported total.
+// remove Employee's salary from the reported total.

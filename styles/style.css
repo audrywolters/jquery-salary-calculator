@@ -3,7 +3,9 @@ body {
     margin: 0;
 }
 
-div {
+h2 {
+    margin: 0;
+    padding: 20px;
     background-color: gray;
     color: white;
 }
@@ -19,4 +21,8 @@ table {
 
 th {
     text-align: left;
+}
+
+#monthlyCost {
+    font-weight: bold;
 }
